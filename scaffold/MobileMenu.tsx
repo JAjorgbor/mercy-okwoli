@@ -27,7 +27,10 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
     open: {
       opacity: 1,
       x: '-50%',
+      display: 'block',
       transition: {
+        x: { delay: 0.2 },
+        duration: 0.4,
         staggerChildren: 0.2,
         type: 'spring',
         stiffness: 100,
@@ -36,7 +39,9 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
     closed: {
       opacity: 0,
       x: '100%',
+      display: 'none',
       transition: {
+        display: { delay: 0.2 },
         staggerChildren: 0.05,
         staggerDirection: -1,
       },
