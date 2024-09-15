@@ -55,7 +55,7 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
     },
     closed: {
       opacity: 0,
-      x: 20,
+      x: 300,
     },
   }
 
