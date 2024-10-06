@@ -7,3 +7,12 @@
     position: initial;
   }
 }
+
+.inputField-after::after {
+  content: ' ';
+  position: absolute;
+  background: red;
+  width: 100%;
+  height: 2px;
+  /* transform: scale(1); */
+}

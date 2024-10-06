@@ -71,7 +71,7 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
         initial='closed'
         animate={isOpen ? 'open' : 'closed'}
         variants={menuVariants}
-        className={`absolute lg:hidden top-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-max w-4/5 md:w-[400px] bg-slate-500 bg-opacity-50 p-6 rounded-2xl z-10`}
+        className={`absolute lg:hidden top-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-max w-4/5 md:w-[400px] bg-slate-500 bg-opacity-50 p-6 rounded-2xl z-50`}
       >
         {/* Menu Items */}
         <motion.ul className='space-y-4'>
@@ -108,8 +108,8 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
           <motion.li variants={itemVariants} className='text-white text-xl'>
             <Button
               className='hover:bg-primary-gradient w-full'
-              href='#'
-              variant={pathname == '#' ? 'primary' : 'default'}
+              href='/projects'
+              variant={pathname == '/projects' ? 'primary' : 'default'}
               startIcon={<Layout size={18} />}
             >
               Projects
@@ -118,8 +118,8 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
           <motion.li variants={itemVariants} className='text-white text-xl'>
             <Button
               className='hover:bg-primary-gradient w-full'
-              href='#'
-              variant={pathname == '#' ? 'primary' : 'default'}
+              href='/contact'
+              variant={pathname == '/contact' ? 'primary' : 'default'}
               startIcon={<Voicemail size={18} />}
             >
               Contact

@@ -1,9 +1,9 @@
+import Button from '@/components/elements/Button'
 import ModalWrapper from '@/components/elements/ModalWrapper'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import type { FC } from 'react'
-import { Link as LinkIcon, FilePlus, Tool } from 'react-feather'
+import { Download, FilePlus, Link as LinkIcon, Tool } from 'react-feather'
 
 interface ProjectModalProps {
   isOpen: boolean
@@ -17,20 +17,25 @@ const ProjectModal: FC<ProjectModalProps> = ({ isOpen, setIsOpen }) => {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         title={
-          <p className='text-center text-2xl font-bold bg-primary-gradient bg-clip-text text-transparent'>
+          <p className='text-center text-2xl font-bold text-white'>
             Lorem ipsum, dolor sit amet
           </p>
         }
+        footer={
+          <>
+            <Button startIcon={<Download size={17} />}>Downoad</Button>
+          </>
+        }
       >
-        <div className='space-y-3'>
-          <div className='grid sm:grid-cols-2 items-center gap-3 md:w-4/5 mx-auto'>
-            <p className='flex gap-2 items-center'>
+        <div className='space-y-4'>
+          <div className='grid md:grid-cols-2 items-center gap-3 lg:w-4/5 mx-auto'>
+            <p className='flex gap-2 items-center flex-wrap'>
               <FilePlus size={18} /> Project Type: Type1, Type2
             </p>
-            <p className='flex gap-2 items-center'>
+            <p className='flex gap-2 items-center flex-wrap'>
               <Tool size={18} /> Tools Used: Tool1, Tool2
             </p>
-            <p className='flex gap-2 items-center'>
+            <p className='flex gap-2 items-center flex-wrap'>
               <LinkIcon size={18} /> Preview URL:{' '}
               <a
                 href='#'
@@ -53,7 +58,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ isOpen, setIsOpen }) => {
             <Image
               src='https://dummyimage.com/400x200'
               alt='project thumbnail'
-              className='w-full object-cover transform rounded-lg'
+              className='w-full h-full object-cover transform rounded-lg'
               height={250}
               width={200}
             />

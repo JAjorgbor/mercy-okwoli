@@ -1,7 +1,7 @@
 import '@/public/globals.css'
 import Header from '@/scaffold/Header'
 import type { Metadata } from 'next'
-import { Inria_Sans } from 'next/font/google'
+import { Inria_Sans, Dancing_Script } from 'next/font/google'
 import localFont from 'next/font/local'
 
 const geistSans = localFont({
@@ -19,6 +19,11 @@ const inriaSans = Inria_Sans({
   weight: ['300', '400', '700'],
   subsets: ['latin'],
 })
+export const dancingScript = Dancing_Script({
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-dancing-script',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: { default: 'Mercy Okwoli', template: '%s | Mercy Okwoli' },
@@ -33,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inriaSans.className} ${geistSans.variable} ${geistMono.variable} antialiased bg-cover bg-no-repeat bg-[url(/media/background-image.jpg)] min-h-[100vh] overflow-x-hidden`}
+        className={`${inriaSans.className} ${dancingScript.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-cover bg-no-repeat bg-[url(/media/background-image.jpg)] min-h-[100vh] overflow-x-hidden font-inria-sans`}
       >
         {/* Define the gradient in an invisible SVG */}
         <svg width='0' height='0'>

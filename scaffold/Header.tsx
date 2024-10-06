@@ -13,7 +13,13 @@ const Header: FC<HeaderProps> = ({}) => {
     <>
       <header className='w-4/5 3xl:container rounded-lg mx-auto'>
         <nav className='flex justify-between w-full py-8'>
-          <div className='text-white font-bold capitalize'>Logo</div>
+          <div
+            className={
+              'text-white font-bold capitalize font-dancing-script text-4xl'
+            }
+          >
+            Mercy Okwoli
+          </div>
           <div className='hidden lg:flex gap-4 items-center'>
             <Button
               className='hover:bg-primary-gradient'

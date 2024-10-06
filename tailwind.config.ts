@@ -11,7 +11,9 @@ const config: Config = {
 
   theme: {
     extend: {
-      fontFamily: { 'inria-sans': ['var(--inria-sans'] },
+      fontFamily: {
+        'dancing-script': ['var(--font-dancing-script)'],
+      },
       colors: {
         default: '#07161e',
         background: 'var(--background)',
