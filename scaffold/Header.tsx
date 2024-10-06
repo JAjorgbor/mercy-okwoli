@@ -33,24 +33,24 @@ const Header: FC<HeaderProps> = ({}) => {
             </Button>
             <Button
               className='hover:bg-primary-gradient'
-              href='#'
-              variant={pathname == '#' ? 'primary' : 'default'}
+              href='/resume'
+              variant={pathname == '/resume' ? 'primary' : 'default'}
               startIcon={<FileText size={18} />}
             >
               Resume
             </Button>
             <Button
               className='hover:bg-primary-gradient'
-              href='#'
-              variant={pathname == '#' ? 'primary' : 'default'}
+              href='/projects'
+              variant={pathname == '/projects' ? 'primary' : 'default'}
               startIcon={<Layout size={18} />}
             >
               Projects
             </Button>
             <Button
               className='hover:bg-primary-gradient'
-              href='#'
-              variant={pathname == '#' ? 'primary' : 'default'}
+              href='/contact'
+              variant={pathname == '/contact' ? 'primary' : 'default'}
               startIcon={<Voicemail size={18} />}
             >
               Contact

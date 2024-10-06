@@ -4,6 +4,10 @@ import Heading from '@/components/elements/Heading'
 import Image from 'next/image'
 import { Mail, Phone } from 'react-feather'
 
+export const metadata = {
+  title: 'About',
+}
+
 export default function About() {
   return (
     <ContentWrapper>
@@ -11,11 +15,11 @@ export default function About() {
         <div className='p-12 px-6 lg:px-16 space-y-12'>
           <Heading title='About Me' />
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
-            <div className='flex justify-center lg:justify-start'>
+            <div className='flex justify-center lg:justify-start w-full'>
               <Image
                 src='https://dummyimage.com/300x350'
                 alt='profile photo'
-                className='rounded-2xl object-fit-cover'
+                className='rounded-2xl object-fit-cover w-full'
                 height={400}
                 width={300}
               />

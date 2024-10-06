@@ -23,10 +23,10 @@ export default function Home() {
           <h3 className='text-gray-400 text-lg'>Data / Business Analyst 📊</h3>
           <div className='flex gap-3 justify-center'>
             <Button variant='default'>
-              <Instagram size={20} className='stroke-[url(#icon-gradient)]' />
+              <Instagram size={20} className='stroke-icon-gradient' />
             </Button>
             <Button variant='default'>
-              <Linkedin size={20} className='stroke-[url(#icon-gradient)]' />
+              <Linkedin size={20} className='stroke-icon-gradient' />
             </Button>
           </div>
         </div>
