@@ -2,8 +2,6 @@ import ContentWrapper from '@/app/ContentWrapper'
 import ContactForm from '@/components/contact/ContactForm'
 import Heading from '@/components/elements/Heading'
 import { Facebook, Instagram, Linkedin, Mail, Phone } from 'react-feather'
-import { FaWhatsapp } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
 import { TbBrandWhatsapp, TbBrandX } from 'react-icons/tb'
 
 export default function ContactPage() {

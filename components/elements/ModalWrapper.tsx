@@ -27,6 +27,7 @@ const ModalWrapper: FC<ModalWrapperProps> = ({
         setIsOpen(false)
       }
     })
+    // eslint-disable-next-line
   }, [])
 
   return isOpen

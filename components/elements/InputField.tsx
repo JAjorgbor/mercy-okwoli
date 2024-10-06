@@ -1,4 +1,6 @@
+/* eslint-disable */
 'use client'
+
 import { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { Eye, EyeOff } from 'react-feather'
 
@@ -231,28 +233,6 @@ const InputField: FC<InputFieldProps> = ({
             defaultValue={register?.defaultValue ?? defaultValue}
             placeholder={placeholder}
           />
-        )
-      case 'phoneNumber':
-        return (
-          <>
-            <PhoneNumberInput
-              disabled={disabled}
-              country={'ng'}
-              buttonClass='select-country-code-button bg-[white_!important]'
-              regions={['america', 'europe', 'asia', 'oceania', 'africa']}
-              enableSearch={true}
-              disableSearchIcon={true}
-              inputProps={{
-                className: `${baseClass} pl-12`,
-              }}
-              countryCodeEditable={false}
-              onChange={(value: string) => onChange(value)}
-              value={value}
-              placeholder={placeholder}
-              onFocus={() => setFieldIsFocused(true)}
-              onBlur={() => setFieldIsFocused(false)}
-            />
-          </>
         )
       case 'amount':
         return (

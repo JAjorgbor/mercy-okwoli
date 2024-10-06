@@ -8,7 +8,8 @@ interface ContactFormProps {}
 
 const ContactForm: FC<ContactFormProps> = ({}) => {
   const formHandler = useForm()
-  const handleSubmit = (data) => console.log(data)
+  //   eslint-disable-next-line
+  const handleSubmit = (data: any) => console.log(data)
   return (
     <form
       action='#'

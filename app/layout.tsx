@@ -19,7 +19,7 @@ const inriaSans = Inria_Sans({
   weight: ['300', '400', '700'],
   subsets: ['latin'],
 })
-export const dancingScript = Dancing_Script({
+const dancingScript = Dancing_Script({
   weight: ['400', '500', '600', '700'],
   variable: '--font-dancing-script',
   subsets: ['latin'],
