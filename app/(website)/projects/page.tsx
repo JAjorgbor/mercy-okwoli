@@ -1,4 +1,4 @@
-import ContentWrapper from '@/app/ContentWrapper'
+import ContentWrapper from '@/app/(website)/ContentWrapper'
 import Heading from '@/components/elements/Heading'
 import ProjectCard from '@/components/projects/ProjectCard'
 

@@ -1,4 +1,4 @@
-import ContentWrapper from '@/app/ContentWrapper'
+import ContentWrapper from '@/app/(website)/ContentWrapper'
 import ContactForm from '@/components/contact/ContactForm'
 import Heading from '@/components/elements/Heading'
 import { Facebook, Instagram, Linkedin, Mail, Phone } from 'react-feather'

@@ -1,4 +1,4 @@
-import ContentWrapper from '@/app/ContentWrapper'
+import ContentWrapper from '@/app/(website)/ContentWrapper'
 import Button from '@/components/elements/Button'
 import Image from 'next/image'
 import { Download, Instagram, Linkedin } from 'react-feather'

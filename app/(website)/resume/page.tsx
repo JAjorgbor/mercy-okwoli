@@ -1,4 +1,4 @@
-import ContentWrapper from '@/app/ContentWrapper'
+import ContentWrapper from '@/app/(website)/ContentWrapper'
 import Heading from '@/components/elements/Heading'
 import { Award, Briefcase, Maximize2 } from 'react-feather'
 import { IoSchoolOutline } from 'react-icons/io5'
