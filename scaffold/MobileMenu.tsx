@@ -1,9 +1,10 @@
 'use client'
 import { useEffect, useState, type FC } from 'react'
+import { BiSolidContact } from 'react-icons/bi'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import Button from '@/components/elements/Button'
-import { FileText, Home, Layout, User, Voicemail } from 'react-feather'
+import { FileText, Home, Layout, User } from 'react-feather'
 import { Turn as Hamburger } from 'hamburger-react'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import { screens } from '@/libraries/screens'
@@ -120,7 +121,7 @@ const MobileMenu: FC<MobileMenuProps> = ({}) => {
               className='hover:bg-primary-gradient w-full'
               href='/contact'
               variant={pathname == '/contact' ? 'primary' : 'default'}
-              startIcon={<Voicemail size={18} />}
+              startIcon={<BiSolidContact size={18} />}
             >
               Contact
             </Button>

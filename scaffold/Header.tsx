@@ -1,9 +1,10 @@
 'use client'
 import Button from '@/components/elements/Button'
+import { BiSolidContact } from 'react-icons/bi'
 import MobileMenu from '@/scaffold/MobileMenu'
 import { usePathname } from 'next/navigation'
 import type { FC } from 'react'
-import { FileText, Home, Layout, User, Voicemail } from 'react-feather'
+import { FileText, Home, Layout, User } from 'react-feather'
 
 interface HeaderProps {}
 
@@ -57,7 +58,7 @@ const Header: FC<HeaderProps> = ({}) => {
               className='hover:bg-primary-gradient'
               href='/contact'
               variant={pathname == '/contact' ? 'primary' : 'default'}
-              startIcon={<Voicemail size={18} />}
+              startIcon={<BiSolidContact size={18} />}
             >
               Contact
             </Button>

@@ -30,6 +30,7 @@ const ProjectCard: FC<ProjectCardProps> = ({}) => {
           />
         </div>
         <div className='p-5 space-y-3'>
+          <h4 className='text-xl font-bold'>Title Text</h4>
           <div className='flex gap-1 flex-wrap'>
             <span className='bg-white/5 text-gray-400 rounded-xl border border-gray-200 py-0.5 px-1 text-sm'>
               Category1
@@ -38,7 +39,6 @@ const ProjectCard: FC<ProjectCardProps> = ({}) => {
               Category2
             </span>
           </div>
-          <h4 className='text-xl font-bold'>Title Text</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
             repudiandae doloribus atque quisquam aliquam nulla. A officiis
