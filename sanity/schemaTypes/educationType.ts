@@ -19,14 +19,8 @@ export const educationType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'startDate',
-      type: 'date',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'endDate',
-      type: 'date',
-      validation: (rule) => rule.required(),
+      name: 'duration',
+      type: 'dateRange',
     }),
     defineField({
       name: 'attatchedDocument',

@@ -8,14 +8,14 @@ export const contactType = defineType({
   icon: BiSolidContact,
   fields: [
     defineField({
-      name: 'phoneNumber',
-      type: 'string',
-    }),
-    defineField({
       name: 'email',
       title: 'Email Address',
       type: 'string',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'phoneNumber',
+      type: 'string',
     }),
     defineField({
       name: 'linkedinProfile',

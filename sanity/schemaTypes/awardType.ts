@@ -18,6 +18,15 @@ export const awardType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'acceptanceYear',
+      description: 'Year award was accepted',
+      type: 'date',
+      options: {
+        dateFormat: 'YYYY',
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'keyPoints',
       description:
         'What key points can you highlight from your obtaining this award?',

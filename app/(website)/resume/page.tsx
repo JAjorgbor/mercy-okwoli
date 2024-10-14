@@ -1,7 +1,10 @@
 import ContentWrapper from '@/app/(website)/ContentWrapper'
+import Button from '@/components/elements/Button'
 import Heading from '@/components/elements/Heading'
-import { Award, Briefcase, Maximize2 } from 'react-feather'
-import { IoSchoolOutline } from 'react-icons/io5'
+import AwardsSection from '@/components/resume/AwardsSection'
+import EducationSection from '@/components/resume/EducationSection'
+import ExperienceSection from '@/components/resume/ExperienceSection'
+import { Download } from 'react-feather'
 
 export const metadata = {
   title: 'Resume',
@@ -12,83 +15,18 @@ export default function ResumePage() {
     <ContentWrapper>
       <div className='bg-default text-white rounded-3xl overflow-hidden'>
         <div className='p-12 px-6 lg:px-16 space-y-12'>
-          <Heading title='Resume' />
+          <div className='flex items-center justify-between flex-wrap gap-5'>
+            <Heading title='Resume' />
+            <Button endIcon={<Download />} className='rounded-3xl'>
+              Download CV
+            </Button>
+          </div>
           <div className='space-y-8'>
-            <div className='space-y-5'>
-              <h3 className='font-bold flex gap-2 text-2xl items-center'>
-                <IoSchoolOutline className='stroke-icon-gradient' size={27} />
-                Education
-              </h3>
-              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                {Array(3)
-                  .fill(null)
-                  .map((each, index) => (
-                    <div
-                      className='border rounded-lg border-gray-300 p-5 space-y-1'
-                      key={index}
-                    >
-                      <p className='text-sm'>2021-2023</p>
-                      <h4 className='text-lg font-bold '>
-                        BSC Computer Science
-                      </h4>
-                      <p className=' '>BSC Computer Science</p>
-                    </div>
-                  ))}
-              </div>
-            </div>
+            <EducationSection />
 
-            <div className='space-y-5'>
-              <h3 className='font-bold flex gap-2 text-2xl items-center'>
-                <Briefcase className='stroke-icon-gradient' />
-                Experience
-              </h3>
-              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                {Array(3)
-                  .fill(null)
-                  .map((each, index) => (
-                    <div
-                      className='border rounded-lg border-gray-300 p-5 space-y-1'
-                      key={index}
-                    >
-                      <div className='flex justify-between text-sm'>
-                        <span>2021-2023</span>
-                        <button type='button' className='group'>
-                          <Maximize2
-                            size={16}
-                            className='group-hover:stroke-icon-gradient'
-                          />
-                        </button>
-                      </div>
-                      <h4 className='text-lg font-bold '>
-                        BSC Computer Science
-                      </h4>
-                      <p className=' '>BSC Computer Science</p>
-                    </div>
-                  ))}
-              </div>
-            </div>
-            <div className='space-y-5'>
-              <h3 className='font-bold flex gap-2 text-2xl items-center'>
-                <Award className='stroke-icon-gradient' />
-                Awards
-              </h3>
-              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                {Array(3)
-                  .fill(null)
-                  .map((each, index) => (
-                    <div
-                      className='border rounded-lg border-gray-300 p-5 space-y-1'
-                      key={index}
-                    >
-                      <p className='text-sm'>2021-2023</p>
-                      <h4 className='text-lg font-bold '>
-                        BSC Computer Science
-                      </h4>
-                      <p className=' '>BSC Computer Science</p>
-                    </div>
-                  ))}
-              </div>
-            </div>
+            <ExperienceSection />
+
+            <AwardsSection />
           </div>
         </div>
         <div className='p-12 px-6 lg:px-16 bg-slate-900'>
@@ -146,7 +84,7 @@ export default function ResumePage() {
               </div>
             </div>
             <div className='space-y-6'>
-              <h3 className='text-xl font-bold uppercase'>Knowledge Base</h3>
+              <h3 className='text-xl font-bold uppercase'>Tools</h3>
 
               <div className='flex gap-3 flex-wrap'>
                 {Array(5)

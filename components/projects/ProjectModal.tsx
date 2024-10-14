@@ -1,4 +1,5 @@
 import Button from '@/components/elements/Button'
+import Chip from '@/components/elements/Chip'
 import ModalWrapper from '@/components/elements/ModalWrapper'
 import Image from 'next/image'
 
@@ -28,10 +29,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ isOpen, setIsOpen }) => {
         }
       >
         <div className='space-y-4'>
-          <div className='grid md:grid-cols-2 items-center gap-3 lg:w-4/5 mx-auto'>
-            <p className='flex gap-2 items-center flex-wrap'>
-              <FilePlus size={18} /> Project Type: Type1, Type2
-            </p>
+          <div className='grid md:grid-cols-2 items-center gap-3 mx-auto'>
             <p className='flex gap-2 items-center flex-wrap'>
               <Tool size={18} /> Tools Used: Tool1, Tool2
             </p>
@@ -42,8 +40,11 @@ const ProjectModal: FC<ProjectModalProps> = ({ isOpen, setIsOpen }) => {
                 target='_blank'
                 className='hover:bg-clip-text hover:text-transparent hover:bg-primary-gradient hover:font-bold'
               >
-                https://linqmanurl.com
+                https://previewurl.com
               </a>
+            </p>
+            <p className='flex gap-2 items-center flex-wrap'>
+              <FilePlus size={18} /> Status: <Chip label='completed' />
             </p>
           </div>
           <p>

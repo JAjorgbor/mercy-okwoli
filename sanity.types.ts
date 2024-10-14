@@ -344,6 +344,7 @@ export type Admin = {
   _updatedAt: string
   _rev: string
   name?: string
+  title?: string
   headshot1?: {
     asset?: {
       _ref: string

@@ -9,7 +9,7 @@ export const experienceType = defineType({
   fields: [
     defineField({
       name: 'companyName',
-      title: 'Name of Company',
+      title: 'Name of Company/institution',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
@@ -37,14 +37,14 @@ export const experienceType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'startDate',
-      type: 'date',
+      name: 'duration',
+      title: 'Experience Duration',
+      type: 'dateRange',
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'endDate',
-      type: 'date',
-      validation: (rule) => rule.required(),
+      // options: {
+      //   dateFormat: 'YYYY-MM', // Only show year and month
+      //   // calendarTodayLabel: 'Today'
+      // },
     }),
     defineField({
       name: 'keyPoints',
@@ -54,7 +54,6 @@ export const experienceType = defineType({
       of: [
         defineArrayMember({
           type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
           lists: [],
         }),
       ],

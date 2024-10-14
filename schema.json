@@ -2064,6 +2064,13 @@
         },
         "optional": true
       },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "headshot1": {
         "type": "objectAttribute",
         "value": {

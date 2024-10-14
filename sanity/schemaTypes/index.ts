@@ -9,6 +9,7 @@ import { experienceType } from '@/sanity/schemaTypes/experienceType'
 import { projectType } from '@/sanity/schemaTypes/projectType'
 import { resumeType } from '@/sanity/schemaTypes/resumeType'
 import { toolsType } from '@/sanity/schemaTypes/toolsType'
+import { dateRangeType } from '@/sanity/schemaTypes/dateRangeType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -23,5 +24,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     experienceType,
     awardType,
     toolsType,
+    dateRangeType,
   ],
 }
