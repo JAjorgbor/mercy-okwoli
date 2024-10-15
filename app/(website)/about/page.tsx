@@ -1,5 +1,5 @@
 import ContentWrapper from '@/app/(website)/ContentWrapper'
-import { axiosInstance } from '@/app/api/utils/request-adapter'
+import { createAxiosInstance } from '@/app/api/utils/request-adapter'
 import Button from '@/components/elements/Button'
 import Heading from '@/components/elements/Heading'
 import { Admin, Contact, Resume } from '@/sanity.types'
@@ -12,6 +12,7 @@ export const metadata = {
 }
 
 export default async function About() {
+  const axiosInstance = await createAxiosInstance()
   const { data }: { data: { admin: Admin; contact: Contact; resume: Resume } } =
     await axiosInstance.get('/api/admin')
   const admin = data.admin
