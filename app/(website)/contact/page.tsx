@@ -1,16 +1,10 @@
 import ContentWrapper from '@/app/(website)/ContentWrapper'
 import ContactForm from '@/components/contact/ContactForm'
 import Heading from '@/components/elements/Heading'
-import { getFullDomain } from '@/utils/getFullDomain'
-import { headers } from 'next/headers'
 import { Facebook, Instagram, Linkedin, Mail, Phone } from 'react-feather'
 import { TbBrandWhatsapp, TbBrandX } from 'react-icons/tb'
 
 export default function ContactPage() {
-  const headersList = headers()
-
-  const fullDomain = getFullDomain(headersList)
-  console.log(fullDomain)
   return (
     <ContentWrapper>
       <div className='bg-default text-white rounded-3xl overflow-hidden'>

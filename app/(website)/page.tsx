@@ -3,6 +3,7 @@ import { createAxiosInstance } from '@/app/api/utils/request-adapter'
 import Button from '@/components/elements/Button'
 import SanityImage from '@/components/elements/SanityImage'
 import { Admin, Contact, Resume } from '@/sanity.types'
+import { client } from '@/sanity/lib/client'
 import { Download, Facebook, Instagram, Linkedin } from 'react-feather'
 import { TbBrandX } from 'react-icons/tb'
 

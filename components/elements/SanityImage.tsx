@@ -18,7 +18,6 @@ const SanityImage: FC<SanityImageProps> = ({
   height,
   className,
 }) => {
-  console.log(urlFor(src).url())
   return (
     <Image
       // eslint-disable-next-line

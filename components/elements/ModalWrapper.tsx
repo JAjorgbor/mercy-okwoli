@@ -23,7 +23,6 @@ const ModalWrapper: FC<ModalWrapperProps> = ({
   useEffect(() => {
     document.body.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        console.log('escaping?')
         setIsOpen(false)
       }
     })
@@ -72,7 +71,7 @@ const ModalWrapper: FC<ModalWrapperProps> = ({
             </motion.div>
           </AnimatePresence>
         </>,
-        document?.body
+        document?.body,
       )
     : null
 }
