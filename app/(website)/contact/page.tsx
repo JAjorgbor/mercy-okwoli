@@ -1,10 +1,16 @@
 import ContentWrapper from '@/app/(website)/ContentWrapper'
+import { createAxiosInstance } from '@/app/api/utils/request-adapter'
 import ContactForm from '@/components/contact/ContactForm'
 import Heading from '@/components/elements/Heading'
+import { Contact } from '@/sanity.types'
 import { Facebook, Instagram, Linkedin, Mail, Phone } from 'react-feather'
 import { TbBrandWhatsapp, TbBrandX } from 'react-icons/tb'
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const axiosInstance = await createAxiosInstance()
+  const { data: contact }: { data: Contact } =
+    await axiosInstance.get('/api/contact')
+
   return (
     <ContentWrapper>
       <div className='bg-default text-white rounded-3xl overflow-hidden'>
@@ -20,17 +26,17 @@ export default function ContactPage() {
                 <h3 className='font-bold uppercase'>Phone</h3>
                 <p className='flex items-center gap-2'>
                   <Phone size={18} className='stroke-icon-gradient' />{' '}
-                  <a target='_blank' href='tel:+2348000000000'>
-                    +2348 000 000 000
+                  <a target='_blank' href={`tel:${contact.phoneNumber}`}>
+                    {contact?.phoneNumber}
                   </a>
                 </p>
                 <p className='flex items-center gap-2 '>
                   <TbBrandWhatsapp size={20} className='stroke-icon-gradient' />
                   <a
                     target='_blank'
-                    href={`https://wa.me/+2348000000000?text=Hello Mercy`}
+                    href={`https://wa.me/${contact.phoneNumber}?text=Hello Mercy`}
                   >
-                    +2348 000 000 000
+                    {contact.phoneNumber}
                   </a>
                 </p>
               </div>
@@ -39,25 +45,33 @@ export default function ContactPage() {
                 <p className='flex items-center gap-2'>
                   <Mail size={18} className='stroke-icon-gradient' />{' '}
                   <a target='_blank' href='mailto:email@example.com'>
-                    email@example.com
+                    {contact.email}
                   </a>
                 </p>
               </div>
               <div className='bg-gray-900 rounded-lg p-4 space-y-4'>
                 <h3 className='font-bold uppercase'>Socials</h3>
                 <div className='flex flex-wrap gap-3'>
-                  <a href={`https://instagram.com/username`} target='_blank'>
-                    <Instagram size={20} className='stroke-icon-gradient' />
-                  </a>
-                  <a href={`https://facebook.com/username`} target='_blank'>
-                    <Facebook size={20} className='stroke-icon-gradient' />
-                  </a>
-                  <a href={`https://linkedin.com/username`} target='_blank'>
-                    <Linkedin size={20} className='stroke-icon-gradient' />
-                  </a>
-                  <a href={`https://X.com/username`} target='_blank'>
-                    <TbBrandX size={20} className='stroke-icon-gradient' />
-                  </a>
+                  {contact.instagramProfile && (
+                    <a href={contact.instagramProfile} target='_blank'>
+                      <Instagram size={20} className='stroke-icon-gradient' />
+                    </a>
+                  )}
+                  {contact.facebookProfile && (
+                    <a href={contact.facebookProfile} target='_blank'>
+                      <Facebook size={20} className='stroke-icon-gradient' />
+                    </a>
+                  )}
+                  {contact.linkedinProfile && (
+                    <a href={contact.linkedinProfile} target='_blank'>
+                      <Linkedin size={20} className='stroke-icon-gradient' />
+                    </a>
+                  )}
+                  {contact.xProfile && (
+                    <a href={contact.xProfile} target='_blank'>
+                      <TbBrandX size={20} className='stroke-icon-gradient' />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
