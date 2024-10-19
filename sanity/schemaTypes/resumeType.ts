@@ -41,7 +41,7 @@ export const resumeType = defineType({
       ],
     }),
     defineField({
-      name: 'attatchedDocument',
+      name: 'attachedDocument',
       type: 'file',
       description: 'Your CV',
       fields: [

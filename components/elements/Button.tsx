@@ -13,6 +13,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   endIcon?: ReactNode
   className?: string
   children: ReactNode
+  linkProps?: { [key: string]: any }
 }
 
 const Button: FC<ButtonProps> = ({
@@ -25,6 +26,7 @@ const Button: FC<ButtonProps> = ({
   endIcon = null,
   className = '',
   children,
+  linkProps,
   ...rest
 }) => {
   let variantClass
@@ -65,6 +67,12 @@ const Button: FC<ButtonProps> = ({
       )}
     </button>
   )
-  return href ? <Link href={href}>{buttonNode}</Link> : buttonNode
+  return href ? (
+    <Link href={href} {...linkProps}>
+      {buttonNode}
+    </Link>
+  ) : (
+    buttonNode
+  )
 }
 export default Button

@@ -2,18 +2,19 @@ import ContentWrapper from '@/app/(website)/ContentWrapper'
 import { createAxiosInstance } from '@/app/api/utils/request-adapter'
 import Button from '@/components/elements/Button'
 import SanityImage from '@/components/elements/SanityImage'
-import { Admin, Contact, Resume } from '@/sanity.types'
-import { client } from '@/sanity/lib/client'
-import { Download, Facebook, Instagram, Linkedin } from 'react-feather'
+import DownloadCVButton from '@/components/resume/DownloadCVButton'
+import { Admin, Contact } from '@/sanity.types'
+import { Facebook, Instagram, Linkedin } from 'react-feather'
 import { TbBrandX } from 'react-icons/tb'
 
 export default async function Home() {
   const axiosInstance = await createAxiosInstance()
-  const { data }: { data: { admin: Admin; contact: Contact; resume: Resume } } =
+  const { data }: { data: { admin: Admin; contact: Contact; cv: any } } =
     await axiosInstance.get('/api/admin')
   const admin = data.admin
   const contact = data.contact
-  // const resume = data.resume
+  const cv = data.cv
+
   return (
     <ContentWrapper>
       <div className='flex flex-col items-center justify-center gap-4'>
@@ -52,9 +53,7 @@ export default async function Home() {
             )}
           </div>
         </div>
-        <Button endIcon={<Download />} className='rounded-3xl'>
-          Download CV
-        </Button>
+        {cv && <DownloadCVButton cv={cv} />}
       </div>
     </ContentWrapper>
   )

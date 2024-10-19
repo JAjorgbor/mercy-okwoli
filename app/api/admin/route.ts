@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const res = await client.fetch(`{
  "admin":*[_type=='admin'][0],
 "contact":*[_type=='contact'][0],
-"cv":*[_type=='resume'][0]{attatchedDocument}
+"cv":*[_type=='resume'][0].attachedDocument
 }`)
 
   return Response.json(res)

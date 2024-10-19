@@ -23,7 +23,7 @@ export const educationType = defineType({
       type: 'dateRange',
     }),
     defineField({
-      name: 'attatchedDocument',
+      name: 'attachedDocument',
       type: 'file',
     }),
   ],

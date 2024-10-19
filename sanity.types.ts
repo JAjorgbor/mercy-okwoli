@@ -69,6 +69,7 @@ export type Awards = {
   _rev: string
   institutionName?: string
   title?: string
+  acceptanceYear?: string
   keyPoints?: Array<{
     children?: Array<{
       marks?: Array<string>
@@ -87,7 +88,7 @@ export type Awards = {
     _type: 'block'
     _key: string
   }>
-  attatchedImage?: {
+  attachedImage?: {
     asset?: {
       _ref: string
       _type: 'reference'
@@ -116,8 +117,7 @@ export type Experience = {
   }>
   visiblity?: boolean
   role?: string
-  startDate?: string
-  endDate?: string
+  duration?: DateRange
   keyPoints?: Array<{
     children?: Array<{
       marks?: Array<string>
@@ -125,7 +125,7 @@ export type Experience = {
       _type: 'span'
       _key: string
     }>
-    style?: 'normal'
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
     listItem?: never
     markDefs?: Array<{
       href?: string
@@ -146,9 +146,8 @@ export type Education = {
   _rev: string
   institutionName?: string
   title?: string
-  startDate?: string
-  endDate?: string
-  attatchedDocument?: {
+  duration?: DateRange
+  attachedDocument?: {
     asset?: {
       _ref: string
       _type: 'reference'
@@ -157,6 +156,13 @@ export type Education = {
     }
     _type: 'file'
   }
+}
+
+export type DateRange = {
+  _type: 'dateRange'
+  startDate?: string
+  isOngoing?: boolean
+  endDate?: string
 }
 
 export type BlockContent = Array<
@@ -199,8 +205,8 @@ export type Contact = {
   _createdAt: string
   _updatedAt: string
   _rev: string
-  phoneNumber?: string
   email?: string
+  phoneNumber?: string
   linkedinProfile?: string
   instagramProfile?: string
   xProfile?: string
@@ -243,7 +249,9 @@ export type Project = {
     crop?: SanityImageCrop
     _type: 'image'
   }
-  attatchedDocument?: {
+  previewURL?: string
+  summary?: string
+  attachedDocument?: {
     asset?: {
       _ref: string
       _type: 'reference'
@@ -291,7 +299,7 @@ export type Resume = {
     _key: string
     [internalGroqTypeReferenceTo]?: 'awards'
   }>
-  attatchedDocument?: {
+  attachedDocument?: {
     asset?: {
       _ref: string
       _type: 'reference'
@@ -455,6 +463,7 @@ export type AllSanitySchemaTypes =
   | Awards
   | Experience
   | Education
+  | DateRange
   | BlockContent
   | Contact
   | Project

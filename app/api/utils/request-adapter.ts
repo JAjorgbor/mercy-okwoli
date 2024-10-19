@@ -14,7 +14,7 @@ export async function createAxiosInstance() {
   // Create and return the axios instance
   const axiosInstance = axios.create({
     baseURL: fullDomain,
-    timeout: 30000,
+    timeout: 50000,
     headers: {
       'Content-Type': 'application/json',
     },

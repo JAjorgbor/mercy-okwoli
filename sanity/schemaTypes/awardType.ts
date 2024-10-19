@@ -40,7 +40,7 @@ export const awardType = defineType({
       ],
     }),
     defineField({
-      name: 'attatchedImage',
+      name: 'attachedImage',
       type: 'image',
       description: 'image of the award',
       options: {
@@ -52,7 +52,7 @@ export const awardType = defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'attatchedImage',
+      media: 'attachedImage',
     },
   },
 })

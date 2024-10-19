@@ -1,46 +1,70 @@
 import ModalWrapper from '@/components/elements/ModalWrapper'
+import { FaRegBuilding } from 'react-icons/fa'
+import { Experience, Tools } from '@/sanity.types'
 
 import type { FC } from 'react'
 import { Clock, Tool } from 'react-feather'
+import { PortableText } from 'next-sanity'
+import moment from 'moment'
 
 interface ExperienceModalProps {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
+  experience: Experience
 }
 
-const ExperienceModal: FC<ExperienceModalProps> = ({ isOpen, setIsOpen }) => {
+const ExperienceModal: FC<ExperienceModalProps> = ({
+  isOpen,
+  setIsOpen,
+  experience,
+}) => {
+  if (!experience) return null
+  const tools = experience?.tools as unknown as Tools[]
   return (
-    <>
-      <ModalWrapper
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        title={
-          <p className='text-center text-2xl font-bold text-white'>
-            Lorem ipsum, dolor sit amet
-          </p>
-        }
-      >
-        <div className='space-y-4'>
-          <div className='space-y-2 mx-auto'>
-            <p className='flex gap-2 items-center flex-wrap'>
-              <Tool size={18} /> Tools Used: Tool1, Tool2
+    experience && (
+      <>
+        <ModalWrapper
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          title={
+            <p className='text-center text-2xl font-bold text-white'>
+              {experience?.role}
             </p>
-            <p className='flex gap-2 items-center flex-wrap'>
-              <Clock size={18} />
-              Duration: October 2022 - October 2024
-            </p>
+          }
+        >
+          <div className='space-y-4'>
+            <div className='space-y-2 mx-auto'>
+              <p className='flex gap-2 items-center flex-wrap'>
+                <FaRegBuilding size={18} /> Organisation:{' '}
+                {experience?.companyName}
+              </p>
+              <p className='flex gap-2 items-center flex-wrap'>
+                <Tool size={18} /> Tools Used:{' '}
+                {tools?.map((each: Tools, index) => (
+                  <span key={index}>
+                    {each.toolName} {index !== tools.length - 1 && ','}
+                  </span>
+                ))}
+              </p>
+              <p className='flex gap-2 items-center flex-wrap'>
+                <Clock size={18} />
+                Duration:{' '}
+                {moment(experience.duration?.startDate).format('YYYY')} -{' '}
+                {experience.duration?.isOngoing
+                  ? 'Ongoing'
+                  : moment(experience.duration?.endDate).format('YYYY')}
+              </p>
+            </div>
+            {experience?.keyPoints && (
+              <>
+                <h3 className='font-bold text-center text-xl'>Key Points</h3>
+                <PortableText value={experience?.keyPoints} />
+              </>
+            )}
           </div>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
-            odit molestiae, eaque animi a blanditiis, nobis veritatis laborum
-            aliquid ea dicta voluptate, ducimus voluptates? Quas itaque
-            cupiditate eligendi debitis temporibus tenetur eveniet numquam nemo
-            obcaecati eius delectus recusandae sint atque quisquam fugit at
-            voluptas corrupti similique dolorem, non earum voluptates.
-          </p>
-        </div>
-      </ModalWrapper>
-    </>
+        </ModalWrapper>
+      </>
+    )
   )
 }
 export default ExperienceModal

@@ -1,4 +1,8 @@
 import ModalWrapper from '@/components/elements/ModalWrapper'
+import SanityImage from '@/components/elements/SanityImage'
+import { Awards } from '@/sanity.types'
+import moment from 'moment'
+import { PortableText } from 'next-sanity'
 import Image from 'next/image'
 
 import type { FC } from 'react'
@@ -7,42 +11,52 @@ import { Clock, Tool } from 'react-feather'
 interface AwardModalProps {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
+  award: Awards
 }
 
-const AwardModal: FC<AwardModalProps> = ({ isOpen, setIsOpen }) => {
+const AwardModal: FC<AwardModalProps> = ({ isOpen, setIsOpen, award }) => {
   return (
-    <>
-      <ModalWrapper
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        title={
-          <p className='text-center text-2xl font-bold text-white'>
-            Lorem ipsum, dolor sit amet
-          </p>
-        }
-      >
-        <div className='space-y-4'>
-          <div className='space-y-2 mx-auto'>
-            <p className='flex gap-2 items-center flex-wrap'>
-              <Tool size={18} /> Institution: institutionName
+    award && (
+      <>
+        <ModalWrapper
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          title={
+            <p className='text-center text-2xl font-bold text-white'>
+              {award.title}
             </p>
-            <p className='flex gap-2 items-center flex-wrap'>
-              <Clock size={18} />
-              Year: 2022
-            </p>
+          }
+        >
+          <div className='space-y-4'>
+            <div className='space-y-2 mx-auto'>
+              <p className='flex gap-2 items-center flex-wrap'>
+                <Tool size={18} /> Institution: {award.institutionName}
+              </p>
+              <p className='flex gap-2 items-center flex-wrap'>
+                <Clock size={18} />
+                Year of Acceptance:{' '}
+                {moment(award.acceptanceYear).format('YYYY')}
+              </p>
+            </div>
+            {award?.keyPoints && (
+              <>
+                <h3 className='font-bold text-center text-xl'>Key Points</h3>
+                <PortableText value={award?.keyPoints} />
+              </>
+            )}
+            <div className='h-[200px]'>
+              <SanityImage
+                src={award.attachedImage}
+                alt='award thumbnail'
+                className='w-full h-full object-cover transform rounded-lg'
+                height={250}
+                width={200}
+              />
+            </div>
           </div>
-          <div className='h-180px'>
-            <Image
-              src='https://dummyimage.com/400x200'
-              alt='project thumbnail'
-              className='w-full h-full object-cover transform rounded-lg'
-              height={250}
-              width={200}
-            />
-          </div>
-        </div>
-      </ModalWrapper>
-    </>
+        </ModalWrapper>
+      </>
+    )
   )
 }
 export default AwardModal

@@ -34,7 +34,18 @@ export const projectType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'attatchedDocument',
+      name: 'previewURL',
+      type: 'string',
+      description: 'Any link or URL to a live demo of the project',
+    }),
+    defineField({
+      name: 'summary',
+      type: 'string',
+      description:
+        'Give a brief summary about the project here, this summary would be displayed on the project card.',
+    }),
+    defineField({
+      name: 'attachedDocument',
       type: 'file',
       description:
         'Any document that is relevant to this project (e.g slides, article)',
@@ -73,9 +84,6 @@ export const projectType = defineType({
       title: 'Tools Used',
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'tools' }] }],
-      //   options: {
-      //     layout: 'tags', // This ensures the input looks like a tag editor
-      //   },
       validation: (rule) => rule.unique().error('Tools must be unique'),
     }),
   ],

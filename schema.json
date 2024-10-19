@@ -312,6 +312,13 @@
         },
         "optional": true
       },
+      "acceptanceYear": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "keyPoints": {
         "type": "objectAttribute",
         "value": {
@@ -454,7 +461,7 @@
         },
         "optional": true
       },
-      "attatchedImage": {
+      "attachedImage": {
         "type": "objectAttribute",
         "value": {
           "type": "object",
@@ -618,17 +625,11 @@
         },
         "optional": true
       },
-      "startDate": {
+      "duration": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "endDate": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
+          "type": "inline",
+          "name": "dateRange"
         },
         "optional": true
       },
@@ -694,6 +695,34 @@
                     {
                       "type": "string",
                       "value": "normal"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h1"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h2"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h3"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h4"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h5"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h6"
+                    },
+                    {
+                      "type": "string",
+                      "value": "blockquote"
                     }
                   ]
                 },
@@ -825,21 +854,15 @@
         },
         "optional": true
       },
-      "startDate": {
+      "duration": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "inline",
+          "name": "dateRange"
         },
         "optional": true
       },
-      "endDate": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "attatchedDocument": {
+      "attachedDocument": {
         "type": "objectAttribute",
         "value": {
           "type": "object",
@@ -884,6 +907,43 @@
           }
         },
         "optional": true
+      }
+    }
+  },
+  {
+    "name": "dateRange",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "dateRange"
+          }
+        },
+        "startDate": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "isOngoing": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        },
+        "endDate": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
       }
     }
   },
@@ -1170,14 +1230,14 @@
           "type": "string"
         }
       },
-      "phoneNumber": {
+      "email": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
         "optional": true
       },
-      "email": {
+      "phoneNumber": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -1460,7 +1520,21 @@
         },
         "optional": true
       },
-      "attatchedDocument": {
+      "previewURL": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "summary": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "attachedDocument": {
         "type": "objectAttribute",
         "value": {
           "type": "object",
@@ -1750,7 +1824,7 @@
         },
         "optional": true
       },
-      "attatchedDocument": {
+      "attachedDocument": {
         "type": "objectAttribute",
         "value": {
           "type": "object",
