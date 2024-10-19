@@ -96,7 +96,7 @@ const ProjectModal: FC<ProjectModalProps> = ({
                   src={project.thumbnail}
                   alt='project thumbnail'
                   className='w-full h-full object-cover transform rounded-lg'
-                  height={250}
+                  height={300}
                   width={200}
                 />
               </div>

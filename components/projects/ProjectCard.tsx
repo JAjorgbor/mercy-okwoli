@@ -19,7 +19,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
   return (
     <>
       <div className='border border-gray-300 rounded-xl overflow-hidden'>
-        <div className='h-[200px] overflow-hidden relative group cursor-pointer'>
+        <div className=' overflow-hidden relative group cursor-pointer'>
           <div
             className='w-full h-full absolute top-0 left-0 grid place-items-center opacity-0 transition-opacity group-hover:opacity-100 bg-black/40 z-30'
             onClick={() => {
@@ -33,7 +33,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
             src={project.thumbnail}
             alt='project thumbnail'
             className='w-full object-cover transform group-hover:scale-125 transition-transform'
-            height={250}
+            height={300}
             width={200}
           />
         </div>

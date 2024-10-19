@@ -44,15 +44,17 @@ const AwardModal: FC<AwardModalProps> = ({ isOpen, setIsOpen, award }) => {
                 <PortableText value={award?.keyPoints} />
               </>
             )}
-            <div className='h-[200px]'>
-              <SanityImage
-                src={award.attachedImage}
-                alt='award thumbnail'
-                className='w-full h-full object-cover transform rounded-lg'
-                height={250}
-                width={200}
-              />
-            </div>
+            {award.attachedImage && (
+              <div>
+                <SanityImage
+                  src={award.attachedImage}
+                  alt='award thumbnail'
+                  className='w-full h-full object-cover transform rounded-lg'
+                  height={300}
+                  width={200}
+                />
+              </div>
+            )}
           </div>
         </ModalWrapper>
       </>

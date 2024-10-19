@@ -63,7 +63,7 @@ const ModalWrapper: FC<ModalWrapperProps> = ({
                     <X />
                   </button>
                 </div>
-                <div className='py-3 px-6  text-white max-h-[60vh] overflow-y-auto'>
+                <div className='py-3 px-6  text-white max-h-[80vh] overflow-y-auto'>
                   {children}
                 </div>
                 <div className='flex gap-3 justify-end p-4 px-6'>{footer}</div>

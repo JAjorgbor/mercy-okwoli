@@ -44,7 +44,7 @@ export default async function ContactPage() {
                 <h3 className='font-bold uppercase'>Email</h3>
                 <p className='flex items-center gap-2'>
                   <Mail size={18} className='stroke-icon-gradient' />{' '}
-                  <a target='_blank' href='mailto:email@example.com'>
+                  <a target='_blank' href={`mailto:${contact.email}`}>
                     {contact.email}
                   </a>
                 </p>

@@ -88,4 +88,11 @@ export const resumeType = defineType({
       validation: (rule) => rule.unique().error('Tools must be unique'),
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Mercy Okwoli's Resume",
+      }
+    },
+  },
 })
