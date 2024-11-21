@@ -3,12 +3,39 @@ import { createAxiosInstance } from '@/app/api/utils/request-adapter'
 import Button from '@/components/elements/Button'
 import Heading from '@/components/elements/Heading'
 import { Admin, Contact, Resume } from '@/sanity.types'
+import { urlFor } from '@/sanity/lib/image'
 import { PortableText } from 'next-sanity'
 import Image from 'next/image'
 import { Mail, Phone } from 'react-feather'
 
-export const metadata = {
-  title: 'About',
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const axiosInstance = await createAxiosInstance()
+  const { data }: { data: { admin: Admin } } =
+    await axiosInstance.get('/api/admin')
+  const admin = data.admin
+  return {
+    title: 'About',
+    descriptions:
+      'Learn more about Mercy Okwoli, a dedicated Data and Business Analyst with a passion for turning raw data into actionable strategies. Explore her journey, skills, and expertise in data visualization, business intelligence, and helping organizations thrive through data-driven decision-making.',
+    openGraph: {
+      title: `Projects`,
+      descriptions:
+        'Learn more about Mercy Okwoli, a dedicated Data and Business Analyst with a passion for turning raw data into actionable strategies. Explore her journey, skills, and expertise in data visualization, business intelligence, and helping organizations thrive through data-driven decision-making.',
+      url: urlFor(admin.headshot1?.asset as any).url() || '',
+      images: [
+        {
+          url: urlFor(admin.headshot1?.asset as any).url() || '',
+          width: 800,
+          height: 600,
+          alt: `${params.slug} Image`,
+        },
+      ],
+    },
+  }
 }
 
 export default async function About() {

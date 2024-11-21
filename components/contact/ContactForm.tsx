@@ -3,13 +3,41 @@ import Button from '@/components/elements/Button'
 import InputField from '@/components/elements/InputField'
 import type { FC } from 'react'
 import { useForm } from 'react-hook-form'
+import emailjs from 'emailjs-com'
+import { toast } from 'react-toastify'
+import { Contact } from '@/sanity.types'
 
-interface ContactFormProps {}
+interface ContactFormProps {
+  contact: Contact
+}
 
-const ContactForm: FC<ContactFormProps> = ({}) => {
+const ContactForm: FC<ContactFormProps> = ({ contact }) => {
   const formHandler = useForm()
+
   //   eslint-disable-next-line
-  const handleSubmit = (data: any) => console.log(data)
+  const handleSubmit = async (data: any) => {
+    try {
+      data.toName = 'Mercy'
+      data.fromEmail = contact.email
+      data.toEmail = contact.email
+      data.replyTo = data.email
+      const result = await emailjs.send(
+        String(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID),
+        String(process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID),
+        data,
+        String(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY),
+      )
+      console.log(data)
+      console.log(result)
+      toast.success('Email sent successfully.')
+      formHandler.reset()
+    } catch (error) {
+      console.error(error)
+      toast.error(
+        `Oops something went wrong. Please try again later or try contacting me directly through ${contact.email}`,
+      )
+    }
+  }
   return (
     <form
       action='#'
@@ -61,7 +89,9 @@ const ContactForm: FC<ContactFormProps> = ({}) => {
         />
       </div>
       <div className='flex justify-end'>
-        <Button type='submit'>Submit</Button>
+        <Button type='submit' isLoading={formHandler.formState.isSubmitting}>
+          Submit
+        </Button>
       </div>
     </form>
   )

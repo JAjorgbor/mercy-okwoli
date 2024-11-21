@@ -5,12 +5,45 @@ import AwardsSection from '@/components/resume/AwardsSection'
 import DownloadCVButton from '@/components/resume/DownloadCVButton'
 import EducationSection from '@/components/resume/EducationSection'
 import ExperienceSection from '@/components/resume/ExperienceSection'
-import { Awards, Education, Experience, Resume, Tools } from '@/sanity.types'
+import {
+  Admin,
+  Awards,
+  Education,
+  Experience,
+  Resume,
+  Tools,
+} from '@/sanity.types'
+import { urlFor } from '@/sanity/lib/image'
 
-export const metadata = {
-  title: 'Resume',
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const axiosInstance = await createAxiosInstance()
+  const { data }: { data: { admin: Admin } } =
+    await axiosInstance.get('/api/admin')
+  const admin = data.admin
+  return {
+    title: 'Resume',
+    description:
+      "View Mercy Okwoli's professional resume, showcasing her skills, experience, and achievements as a Data and Business Analyst. Discover her expertise in data analysis, business intelligence, and driving organizational success through innovative solutions.",
+    openGraph: {
+      title: `Projects`,
+      description:
+        'Explore the portfolio of projects by Mercy Okwoli, featuring innovative data analysis, visualization, and business intelligence solutions. See how her work delivers actionable insights and drives meaningful business outcomes.',
+      url: urlFor(admin.headshot1?.asset as any).url() || '',
+      images: [
+        {
+          url: urlFor(admin.headshot1?.asset as any).url() || '',
+          width: 800,
+          height: 600,
+          alt: `${params.slug} Image`,
+        },
+      ],
+    },
+  }
 }
-
 export default async function ResumePage() {
   const axiosInstance = await createAxiosInstance()
   const { data: resume }: { data: Resume } =

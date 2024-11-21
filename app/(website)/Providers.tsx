@@ -1,12 +1,19 @@
 'use client'
 import type { FC } from 'react'
 import { ReactNode } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-interface providersProps {
+interface ProvidersProps {
   children: ReactNode
 }
 
-const providers: FC<providersProps> = ({ children }) => {
-  return <>{children}</>
+const Providers: FC<ProvidersProps> = ({ children }) => {
+  return (
+    <>
+      {children}
+      <ToastContainer theme='dark' />
+    </>
+  )
 }
-export default providers
+export default Providers

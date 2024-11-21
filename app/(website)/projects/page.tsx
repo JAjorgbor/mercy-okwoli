@@ -3,10 +3,37 @@ import { createAxiosInstance } from '@/app/api/utils/request-adapter'
 import Heading from '@/components/elements/Heading'
 import ProjectCard from '@/components/projects/ProjectCard'
 import ProjectsSection from '@/components/projects/ProjectsSection'
-import { Project } from '@/sanity.types'
+import { Admin, Project } from '@/sanity.types'
+import { urlFor } from '@/sanity/lib/image'
 
-export const metadata = {
-  title: 'Projects',
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const axiosInstance = await createAxiosInstance()
+  const { data }: { data: { admin: Admin } } =
+    await axiosInstance.get('/api/admin')
+  const admin = data.admin
+  return {
+    title: 'Projects',
+    description:
+      'Explore the portfolio of projects by Mercy Okwoli, featuring innovative data analysis, visualization, and business intelligence solutions. See how her work delivers actionable insights and drives meaningful business outcomes.',
+    openGraph: {
+      title: `Projects | Mercy Okwoli`,
+      description:
+        'Explore the portfolio of projects by Mercy Okwoli, featuring innovative data analysis, visualization, and business intelligence solutions. See how her work delivers actionable insights and drives meaningful business outcomes.',
+      url: urlFor(admin.headshot1?.asset as any).url() || '',
+      images: [
+        {
+          url: urlFor(admin.headshot1?.asset as any).url() || '',
+          width: 800,
+          height: 600,
+          alt: `${params.slug} Image`,
+        },
+      ],
+    },
+  }
 }
 
 export default async function ProjectPagePage() {

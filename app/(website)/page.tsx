@@ -4,8 +4,36 @@ import Button from '@/components/elements/Button'
 import SanityImage from '@/components/elements/SanityImage'
 import DownloadCVButton from '@/components/resume/DownloadCVButton'
 import { Admin, Contact } from '@/sanity.types'
+import { urlFor } from '@/sanity/lib/image'
 import { Facebook, Instagram, Linkedin } from 'react-feather'
 import { TbBrandX } from 'react-icons/tb'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const axiosInstance = await createAxiosInstance()
+  const { data }: { data: { admin: Admin } } =
+    await axiosInstance.get('/api/admin')
+  const admin = data.admin
+  return {
+    openGraph: {
+      title: `Mercy Okwoli`,
+      description:
+        "Welcome to the portfolio of Mercy Okwoli, a passionate Data and Business Analyst dedicated to turning data into meaningful insights. With a knack for data visualization, business intelligence, and crafting strategies that drive success, Mercy's work reflects her commitment to empowering businesses with informed decisions and innovative solutions.",
+      url: urlFor(admin.headshot1?.asset as any).url() || '',
+      images: [
+        {
+          url: urlFor(admin.headshot1?.asset as any).url() || '',
+          width: 800,
+          height: 600,
+          alt: `${params.slug} Image`,
+        },
+      ],
+    },
+  }
+}
 
 export default async function Home() {
   const axiosInstance = await createAxiosInstance()
