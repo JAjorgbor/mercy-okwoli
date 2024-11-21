@@ -50,7 +50,7 @@ export default async function Home() {
           <SanityImage
             src={admin.headshot1?.asset || ''}
             alt='profile photo'
-            className='rounded-full h-[250px] w-[250px] object-fit-cover'
+            className='rounded-full h-[250px] w-[250px] object-cover'
             height={300}
             width={300}
           />

@@ -2,6 +2,7 @@ import ContentWrapper from '@/app/(website)/ContentWrapper'
 import { createAxiosInstance } from '@/app/api/utils/request-adapter'
 import Button from '@/components/elements/Button'
 import Heading from '@/components/elements/Heading'
+import SanityImage from '@/components/elements/SanityImage'
 import { Admin, Contact, Resume } from '@/sanity.types'
 import { urlFor } from '@/sanity/lib/image'
 import { PortableText } from 'next-sanity'
@@ -51,10 +52,10 @@ export default async function About() {
           <Heading title='About Me' />
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
             <div className='flex justify-center lg:justify-start w-full'>
-              <Image
-                src='https://dummyimage.com/300x350'
+              <SanityImage
+                src={admin.headshot2?.asset || ''}
                 alt='profile photo'
-                className='rounded-2xl object-fit-cover w-full'
+                className='rounded-2xl object-cover w-full'
                 height={400}
                 width={300}
               />
@@ -98,7 +99,7 @@ export default async function About() {
                     <Image
                       src='https://dummyimage.com/60x60'
                       alt='profile photo'
-                      className='object-fit-cover w-[60px] h-[60px] block'
+                      className='object-cover w-[60px] h-[60px] block'
                       height={60}
                       width={60}
                     />{' '}
@@ -110,7 +111,7 @@ export default async function About() {
                     <Image
                       src='https://dummyimage.com/60x60'
                       alt='profile photo'
-                      className='object-fit-cover w-[60px] h-[60px] block'
+                      className='object-cover w-[60px] h-[60px] block'
                       height={60}
                       width={60}
                     />{' '}
@@ -122,7 +123,7 @@ export default async function About() {
                     <Image
                       src='https://dummyimage.com/60x60'
                       alt='profile photo'
-                      className='object-fit-cover w-[60px] h-[60px] block'
+                      className='object-cover w-[60px] h-[60px] block'
                       height={60}
                       width={60}
                     />{' '}

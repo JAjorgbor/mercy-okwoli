@@ -25,6 +25,7 @@ export const educationType = defineType({
     defineField({
       name: 'attachedDocument',
       type: 'file',
+      title: 'Image of certification',
     }),
   ],
 })
